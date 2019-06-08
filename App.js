@@ -11,14 +11,11 @@ export default class App extends React.Component {
     this.state = {
       todoInput: '',
       todos: [
-        { id: 0, title: 'Take out the trash', done: false },
-        { id: 1, title: 'Cook dinner', done: false }
       ]
     }
   }
 
   render() {
-    // console.log(this.state);
     const statusBar = (Platform.OS === 'ios') ? <View style={styles.statusBar}></View> : <View></View>;
     return (
       <View style={styles.container}>

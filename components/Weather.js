@@ -7,7 +7,8 @@ export default class Weather extends React.Component {
         this.state = {
             data: '',
             lat: '',
-            lon: ''
+            lon: '',
+            temp: ''
         }
     }
 
@@ -33,6 +34,7 @@ export default class Weather extends React.Component {
                         <Image 
                             source={{uri: `http://openweathermap.org/img/w/${this.state.data.weather[0].icon}.png`}}
                             style={{width: 50, height: 50}} />
+                        <Text>{Math.round(this.state.temp)}°F</Text>
                         <View style={styles.textContainer}>
                             <Text>{this.state.data.weather[0].main}: {this.state.data.weather[0].description}</Text>
                         </View>
@@ -44,10 +46,11 @@ export default class Weather extends React.Component {
     _getWeather = async () => {
         const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${this.state.lat}&lon=${this.state.lon}&appid=544e633f1a1d6d7bb3378ec526f12f59`);
         const data = await response.json();
+        const temp = (data.main.temp - 273.15) * (9/5) + 32
         this.setState({
-            data
+            data,
+            temp
         })
-        console.log(`this is data ${this.state.data.weather[0].icon}`)
     }
 }
 

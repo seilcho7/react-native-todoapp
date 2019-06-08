@@ -11,7 +11,7 @@ export default function InputBar(props) {
                 />
             <TouchableOpacity 
                 style={styles.addButton}
-                onPress={props.addNewTodo}
+                onPress={props.todoInput ? props.addNewTodo : null}
                 >
                 <Text style={styles.addButtonText}>ADD</Text>
             </TouchableOpacity>
