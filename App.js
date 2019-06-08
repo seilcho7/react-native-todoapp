@@ -3,6 +3,7 @@ import { Platform, StyleSheet, Text, View, FlatList } from 'react-native';
 import Header from './components/Header';
 import InputBar from './components/InputBar';
 import TodoItem from './components/TodoItem';
+import Weather from './components/Weather';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -22,7 +23,8 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         {statusBar}
-        <Header title="To Do App"/>
+        <Header title="Open First"/>
+        <Weather />
         <InputBar 
           textChange={todoInput => this.setState({ todoInput })}
           addNewTodo={() => {this._addNewTodo()}}
@@ -88,7 +90,6 @@ export default class App extends React.Component {
   }
 
 }
-
 
 
 const styles = StyleSheet.create({

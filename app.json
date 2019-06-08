@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Share Places",
-    "slug": "share-places",
+    "name": "Open First",
+    "slug": "open-first-app",
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": [
