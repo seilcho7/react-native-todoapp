@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, StyleSheet, Text, View, FlatList } from 'react-native';
+import { Platform, StyleSheet, View, FlatList, SafeAreaView } from 'react-native';
 import Header from './components/Header';
 import InputBar from './components/InputBar';
 import TodoItem from './components/TodoItem';
@@ -10,14 +10,14 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       todoInput: '',
-      todos: [
-      ]
+      todos: []
     }
   }
 
   render() {
     const statusBar = (Platform.OS === 'ios') ? <View style={styles.statusBar}></View> : <View></View>;
     return (
+      // <SafeAreaView>
       <View style={styles.container}>
         {statusBar}
         <Header title="Open First"/>
@@ -46,6 +46,7 @@ export default class App extends React.Component {
           }}
         />
       </View>
+      // </SafeAreaView>
     );
   }
 
@@ -95,7 +96,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   statusBar: {
-    backgroundColor: '#FFCE00',
     height: 20
   }
 });

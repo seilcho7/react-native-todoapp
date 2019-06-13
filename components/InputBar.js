@@ -8,6 +8,7 @@ export default function InputBar(props) {
                 style={styles.input}
                 onChangeText={(text) => props.textChange(text)}
                 value={props.todoInput}
+                placeholder="   To Do List"
                 />
             <TouchableOpacity 
                 style={styles.addButton}

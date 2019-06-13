@@ -17,7 +17,6 @@ export default class Weather extends React.Component {
             navigator.geolocation.getCurrentPosition((position) => {
                 const lon = position.coords.longitude.toFixed(2);
                 const lat = position.coords.latitude.toFixed(2);
-                console.log(`longitude: ${ lon } | latitude: ${ lat }`);
                 this.setState({
                     lon,
                     lat
@@ -46,7 +45,7 @@ export default class Weather extends React.Component {
     _getWeather = async () => {
         const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${this.state.lat}&lon=${this.state.lon}&appid=544e633f1a1d6d7bb3378ec526f12f59`);
         const data = await response.json();
-        const temp = (data.main.temp - 273.15) * (9/5) + 32
+        const temp = (data.main.temp - 273.15) * (9/5) + 32;
         this.setState({
             data,
             temp
